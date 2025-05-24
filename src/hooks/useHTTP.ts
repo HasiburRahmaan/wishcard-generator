@@ -8,7 +8,7 @@ import axiosInstance from 'axios';
 // import { fetchWebToken } from '@/utils/helpers/getWebTokenFromWeb';
 import { decrementActiveCallsCount, incrementActiveCallsCount } from '@/store/slices/loaderSlice';
 import { getAuthTokenFromLocalStorage } from '@/utils/helpers/localStorage';
-import { addErrorMessage } from '@/store/slices/errorSlice';
+import { addErrorMessage } from '@/store/slices/toastSlice';
 
 interface HTTPBaseOptions {
   api: string;

@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import loaderReducer from "./slices/loaderSlice";
-import errorReducer from "./slices/errorSlice";
+import toastReducer from "./slices/toastSlice";
 const RootReducer = combineReducers({
   loader: loaderReducer,
-  error: errorReducer,
+  toast: toastReducer,
 })
 
 export default RootReducer;
