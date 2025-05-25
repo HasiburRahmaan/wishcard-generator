@@ -1,14 +1,13 @@
 'use client';
-
-import { useDispatch } from 'react-redux';
 import axiosInstance from 'axios';
-
 
 // import { clearCredentials } from '@/store/slices/authSlice/authSlice';
 // import { fetchWebToken } from '@/utils/helpers/getWebTokenFromWeb';
 import { decrementActiveCallsCount, incrementActiveCallsCount } from '@/store/slices/loaderSlice';
 import { getAuthTokenFromLocalStorage } from '@/utils/helpers/localStorage';
-import { addErrorMessage } from '@/store/slices/toastSlice';
+import { useAppDispatch } from '@/store/hooks';
+import { useToast } from './useToast';
+
 
 interface HTTPBaseOptions {
   api: string;
@@ -33,12 +32,11 @@ type HTTPResponse<T = any> = {
 };
 
 export default function useHTTP() {
-  const dispatch = useDispatch();
-
+  const dispatch = useAppDispatch();
+  const { pushToast } = useToast()
   const errorHandler = (error: any) => {
     const message = error?.response?.data?.message || 'Something went wrong. Please try again.';
-    dispatch(addErrorMessage(message));
-
+    pushToast({ message, type: 'error' })
     if (error?.response?.status === 401) {
       if (error?.response?.data?.status?.toString() === '400407') {
         // fetchWebToken();
