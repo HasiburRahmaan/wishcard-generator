@@ -29,7 +29,7 @@ export const metaDataGenerator = ({
   } = SITE_INFORMATION;
 
   return {
-    metadataBase: new URL(process.env.SITE_URL!),
+    metadataBase: new URL(SITE_INFORMATION.url!),
     title: {
       default: title ?? metaTitle,
       template: `%s | ${SITE_INFORMATION.appName}`,
@@ -59,7 +59,7 @@ export const metaDataGenerator = ({
       images: twitterImages,
     },
     verification: {
-      google: "YZxPl561izO9AQ8BKr4GLg53q2NE-8WYP8URTWektDg",
+      google: "",
     },
   };
 };

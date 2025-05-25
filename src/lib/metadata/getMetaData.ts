@@ -1,5 +1,5 @@
-// lib/seo/getMetaData.ts
-import api from "@api/index";
+import { SITE_INFORMATION } from "@/config/seo";
+import { get } from "./fetch";
 import { metaDataGenerator } from "./generateMetadata";
 
 type GetMetaDataProps = {
@@ -11,7 +11,7 @@ export const GetMetaData = async ({ url, siteUrl }: GetMetaDataProps) => {
   if (!url) return metaDataGenerator({});
 
   try {
-    const response = await api.fetch.get(url);
+    const response: any = await get(url);
     const { meta } = response.data || {};
 
     if (!meta) return metaDataGenerator({});
@@ -29,13 +29,13 @@ export const GetMetaData = async ({ url, siteUrl }: GetMetaDataProps) => {
       ]
       : [
         {
-          url: DefaultLandscapeImg.src,
+          url: SITE_INFORMATION.ogImage,
           width: 652,
           height: 368,
           alt: title ?? process.env.SITE_NAME,
         },
         {
-          url: DefaultLandscapeImg.src,
+          url: SITE_INFORMATION.ogImage,
           width: 1920,
           height: 1080,
           alt: title ?? process.env.SITE_NAME,
@@ -44,7 +44,7 @@ export const GetMetaData = async ({ url, siteUrl }: GetMetaDataProps) => {
 
     const twitterImages = meta_image
       ? [meta_image]
-      : [DefaultLandscapeImg.src];
+      : [SITE_INFORMATION.ogImage];
 
     return metaDataGenerator({
       title,

@@ -1,3 +1,4 @@
+'use client'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { removeToast } from '@/store/slices/toastSlice'
 import React, { useEffect, useRef, useState } from 'react'

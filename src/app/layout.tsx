@@ -4,6 +4,7 @@ import "./globals.css";
 import ReduxProvider from "@/store/provider";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import ToastListener from "@/components/common/toast/toastListener";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +38,8 @@ export default function RootLayout({
             <div className="min-h-[90dvh]"> {children}</div>
             <Footer />
           </div>
+
+          <ToastListener />
         </ReduxProvider>
       </body>
     </html>
