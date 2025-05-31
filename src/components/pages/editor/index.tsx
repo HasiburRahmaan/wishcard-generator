@@ -10,19 +10,7 @@ import Toolbar from './components/Toolbar';
 import FontStyleToolbar from './components/FontStyleToolbar';
 import Canvas from './components/Canvas';
 
-type Box = {
-  id: string;
-  text: string;
-  type: 'text' | 'image';
-  src?: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  fontSize: string;
-  fontWeight: string;
-  fontFamily: string;
-};
+
 const templates = [
   '/templates/template1.jpg',
   '/templates/template2.jpg',
@@ -209,9 +197,9 @@ export default function WishCardEditor() {
         </div>
         {selectedBox && (
           <FontStyleToolbar
-            fontSize={selectedBox.fontSize}
-            fontWeight={selectedBox.fontWeight}
-            fontFamily={selectedBox.fontFamily}
+            fontSize={selectedBox.fontSize ?? ""}
+            fontWeight={selectedBox.fontWeight ?? ""}
+            fontFamily={selectedBox.fontFamily ?? ""}
             onChange={(updates) => updateBox(selectedBox.id, updates)}
           />
         )}

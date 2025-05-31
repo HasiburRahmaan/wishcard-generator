@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image";
-
 type Props = {
   templates: any[];
   onTemplateSelect: (template: any) => void;

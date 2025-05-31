@@ -3,19 +3,6 @@
 import ImageBox from './ImageBox';
 import TextBox from './TextBox';
 
-type Box = {
-  id: string;
-  type: 'text' | 'image';
-  text: string;
-  src?: string;
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  fontSize?: string;
-  fontWeight?: string;
-  fontFamily?: string;
-};
 type Props = {
   boxes: Box[];
   selectedId: string | null;
@@ -27,8 +14,6 @@ type Props = {
 };
 
 export default function Canvas({ boxes, selectedId, template, canvasWidth, canvasHeight, setSelectedId, onUpdateBox }: Props) {
-
-
   return (
     <div
       className="relative w-[800px] h-[600px] border bg-white"
