@@ -10,4 +10,6 @@ interface Box {
   fontSize?: string;
   fontWeight?: string;
   fontFamily?: string;
+  textColor: string;
+  backgroundColor: string;
 };

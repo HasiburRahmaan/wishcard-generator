@@ -30,6 +30,8 @@ export default function WishCardEditor() {
       fontSize: '16px',
       fontWeight: 'normal',
       fontFamily: 'sans-serif',
+      textColor: '#000000',
+      backgroundColor: 'transparent',
     },
   ];
   const [canvasWidth, setCanvasWidth] = useState<number>(800);
@@ -66,6 +68,8 @@ export default function WishCardEditor() {
       fontSize: '16px',
       fontWeight: 'normal',
       fontFamily: 'sans-serif',
+      textColor: '#000000',
+      backgroundColor: 'transparent',
     };
     commitChange([...boxes, newBox]);
     setSelectedBoxId(newBox.id);
@@ -135,6 +139,8 @@ export default function WishCardEditor() {
 
     /* this is for high resolution download */
     const scale = 1;
+    let prevSelectedBoxId = selectedBoxId;
+    setSelectedBoxId(null)
     try {
       await document.fonts.ready;
 
@@ -200,6 +206,8 @@ export default function WishCardEditor() {
             fontSize={selectedBox.fontSize ?? ""}
             fontWeight={selectedBox.fontWeight ?? ""}
             fontFamily={selectedBox.fontFamily ?? ""}
+            textColor={selectedBox.textColor ?? ""}
+            backgroundColor={selectedBox.backgroundColor ?? ""}
             onChange={(updates) => updateBox(selectedBox.id, updates)}
           />
         )}

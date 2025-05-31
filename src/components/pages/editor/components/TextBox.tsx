@@ -14,6 +14,8 @@ type TextBoxProps = {
   fontSize?: string;
   fontWeight?: string;
   fontFamily?: string;
+  textColor: string;
+  backgroundColor: string;
   onChange: (id: string, newText: string) => void;
   onDragStop: (id: string, x: number, y: number) => void;
   onResizeStop: (id: string, width: number, height: number) => void;
@@ -31,6 +33,8 @@ export default function TextBox({
   fontSize,
   fontWeight,
   fontFamily,
+  textColor,
+  backgroundColor,
   onChange,
   onDragStop,
   onResizeStop,
@@ -51,8 +55,8 @@ export default function TextBox({
       style={{
         border: isSelected ? '2px solid blue' : '1px dashed gray',
         borderRadius: '4px',
-        background: '#fff',
-
+        background: backgroundColor,
+        padding: '0px',
       }}
     >
       <textarea
@@ -61,11 +65,13 @@ export default function TextBox({
           setLocalText(e.target.value);
           onChange(id, e.target.value);
         }}
-        className="w-full h-full resize-none p-2 text-black outline-none cursor-move"
+        className="w-full h-full resize-none p-1 text-black outline-none cursor-move"
         style={{
           fontSize,
           fontWeight,
           fontFamily,
+          color: textColor,
+          backgroundColor,
         }}
       />
     </Rnd>

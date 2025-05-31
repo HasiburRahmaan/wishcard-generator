@@ -4,6 +4,8 @@ type Props = {
   fontSize: string;
   fontWeight: string;
   fontFamily: string;
+  textColor: string;
+  backgroundColor: string;
   onChange: (updates: Partial<StyleUpdate>) => void;
 };
 
@@ -11,12 +13,16 @@ type StyleUpdate = {
   fontSize: string;
   fontWeight: string;
   fontFamily: string;
+  textColor: string;
+  backgroundColor: string;
 };
 
 export default function FontStyleToolbar({
   fontSize,
   fontWeight,
   fontFamily,
+  textColor,
+  backgroundColor,
   onChange,
 }: Props) {
   return (
@@ -56,6 +62,26 @@ export default function FontStyleToolbar({
           <option value="monospace">Monospace</option>
           <option value="cursive">Cursive</option>
         </select>
+      </div>
+
+      <div className="mb-2">
+        <label className="block text-sm font-medium">Text Color</label>
+        <input
+          type="color"
+          value={textColor}
+          onChange={(e) => onChange({ textColor: e.target.value })}
+          className="w-full h-8 p-0 border-none bg-transparent"
+        />
+      </div>
+      <div className="mb-2">
+        <label className="block text-sm font-medium">Background Color</label>
+        <input
+          type="color"
+          value={backgroundColor}
+          onChange={(e) => onChange({ backgroundColor: e.target.value })}
+          className="w-full h-8 p-0 border-none bg-transparent"
+        />
+        <button className={`w-full bg-gray-200 p-2 rounded active:scale-95`} onClick={() => onChange({ backgroundColor: 'transparent' })}>Make Transparent</button>
       </div>
     </div>
   );
