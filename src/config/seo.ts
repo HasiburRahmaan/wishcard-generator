@@ -1,7 +1,7 @@
 export const SITE_INFORMATION = {
-  appName: "app name",
-  metaTitle: "site title",
-  metaDescription: "descrition",
+  appName: "Wishcard Generator",
+  metaTitle: "Wishcard Generator",
+  metaDescription: "Wishcard Generator",
   keywords: ['keywords'],
   siteName: "siteName",
   url: "site domain",
